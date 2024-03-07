@@ -1,12 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { MainPage } from "../pages";
+import { BodyLayout } from "../layouts";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<></>} />
-        <Route path="/details" element={<></>} />
-      </Routes>
+      <BodyLayout>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/details" element={<></>} />
+          <Route path="/*" element={<MainPage />} />
+        </Routes>
+      </BodyLayout>
     </BrowserRouter>
   );
 };
