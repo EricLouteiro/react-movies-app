@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme } from "antd";
 import { AppRouter } from "./routes/AppRouter";
 import { darkTheme } from "./theme";
 
@@ -8,9 +8,14 @@ function App() {
     <ConfigProvider
       theme={{
         token: darkTheme,
+        algorithm: theme.darkAlgorithm,
         components: {
           Layout: {
             headerBg: "bgPrimary",
+          },
+          Input: {
+            colorBgContainer: "#1e1f31",
+            borderRadius: 8,
           },
         },
       }}
