@@ -1,6 +1,13 @@
 import { Space, Image, Rate, Typography } from "antd";
+import { MovieSlideProps } from "../interfaces";
+import noImage from "../../../assets/no-image.jpg";
 
-export const MovieSlider = () => {
+export const MovieSlide = ({
+  imgSrc,
+  actors,
+  description,
+  year,
+}: MovieSlideProps) => {
   const { Title, Text, Paragraph } = Typography;
   return (
     <Space.Compact
@@ -24,9 +31,9 @@ export const MovieSlider = () => {
         }}
       >
         <Image
-          width={"100%"}
+          width={"197px"}
           style={{ borderRadius: "1rem" }}
-          src="https://cloudfront-us-east-1.images.arcpublishing.com/abccolor/WCCOCPP7SVA5XBA4FUTYQWQPHU.jpg"
+          src={imgSrc || noImage}
         />
         <Rate defaultValue={5} style={{ alignSelf: "end" }} />
       </Space.Compact>
@@ -41,19 +48,16 @@ export const MovieSlider = () => {
       >
         <Space.Compact direction="vertical">
           <Title level={5}> Descripción </Title>
-          <Paragraph>
-            Amet dolor id commodo consectetur voluptate sunt proident cillum ut
-            nisi nisi quis ea incididunt.
-          </Paragraph>
+          <Paragraph ellipsis={{ rows: 4 }}>{description}</Paragraph>
         </Space.Compact>
 
         <Space.Compact direction="vertical">
           <Title style={{ marginTop: "0px" }} level={5}>
-            Actores:
+            Reparto
           </Title>
-          <Text> Juan </Text>
-          <Text> pueblo </Text>
-          <Text> pueblo2 </Text>
+          {actors.map((actor) => (
+            <Text>{actor}</Text>
+          ))}
         </Space.Compact>
 
         <Space direction="horizontal">
@@ -62,7 +66,7 @@ export const MovieSlider = () => {
           >
             Año de lanzamiento:
           </Text>
-          <Text style={{ fontSize: "small" }}> Juan </Text>
+          <Text style={{ fontSize: "small" }}> {year} </Text>
         </Space>
       </Space>
     </Space.Compact>
