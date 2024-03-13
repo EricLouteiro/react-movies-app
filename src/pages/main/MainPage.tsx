@@ -189,15 +189,18 @@ export const MainPage = () => {
               alignItems: "baseline",
             }}
           >
-            <Title level={5}>Search Results: </Title>
-            <Button
-              size="small"
-              onClick={() => handleClearResults()}
-              type="default"
-            >
-              {" "}
-              Clear{" "}
-            </Button>
+            {searchMovies.length > 0 && (
+              <>
+                <Title level={5}>Search Results: </Title>
+                <Button
+                  size="small"
+                  onClick={() => handleClearResults()}
+                  type="default"
+                >
+                  Clear
+                </Button>
+              </>
+            )}
           </Space>
           <Col
             style={{

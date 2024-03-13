@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL: string = "http://www.omdbapi.com";
+const baseURL: string = "https://www.omdbapi.com";
 
 const moviesApi = axios.create({
   baseURL,
