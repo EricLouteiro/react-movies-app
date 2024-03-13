@@ -1,4 +1,5 @@
 import {
+  Button,
   Carousel,
   Col,
   Row,
@@ -17,12 +18,19 @@ import { movieStore } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { Movie } from "../../models";
 
-const moviesRecommended: string = import.meta.env.VITE_MOVIES_RECOMMENDED;
-const moviesCurrent: string = import.meta.env.VITE_CURRENT_MOVIES;
+const moviesRecommended: string = import.meta.env.VITE_MOVIES_RECOMMENDED || "";
+const moviesCurrent: string = import.meta.env.VITE_CURRENT_MOVIES || "";
+
 export const MainPage = () => {
   const { Title } = Typography;
-  const { recommended, add, current, setSelectedMovie, searchMovies } =
-    movieStore((state) => state);
+  const {
+    recommended,
+    add,
+    current,
+    setSelectedMovie,
+    searchMovies,
+    addMovieSearch,
+  } = movieStore((state) => state);
   const navigate = useNavigate();
   const [api] = notification.useNotification();
   const [messageApi, contexHolder] = message.useMessage();
@@ -108,6 +116,10 @@ export const MainPage = () => {
       });
   };
 
+  const handleClearResults = () => {
+    addMovieSearch([]);
+  };
+
   return (
     <MainLayout>
       {contexHolder}
@@ -123,6 +135,7 @@ export const MainPage = () => {
                   current.map((movie) => (
                     <MovieSlide
                       key={movie.imdbID}
+                      title={movie.title}
                       actors={movie.actors}
                       description={movie.plot}
                       year={movie.year}
@@ -169,7 +182,23 @@ export const MainPage = () => {
           </Row>
         </Col>
         <Col span={8} style={{ maxHeight: "80vh" }}>
-          <Title level={5}>Search Results: </Title>
+          <Space
+            style={{
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "baseline",
+            }}
+          >
+            <Title level={5}>Search Results: </Title>
+            <Button
+              size="small"
+              onClick={() => handleClearResults()}
+              type="default"
+            >
+              {" "}
+              Clear{" "}
+            </Button>
+          </Space>
           <Col
             style={{
               width: "100%",

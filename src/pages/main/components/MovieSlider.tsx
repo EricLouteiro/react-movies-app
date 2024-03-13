@@ -9,6 +9,7 @@ export const MovieSlide = ({
   year,
   onClick,
   rate,
+  title,
 }: MovieSlideProps) => {
   const { Title, Text, Paragraph } = Typography;
   return (
@@ -51,14 +52,15 @@ export const MovieSlide = ({
           justifyContent: "center",
         }}
       >
+        <Title level={4}> {title} </Title>
         <Space.Compact direction="vertical">
-          <Title level={5}> Descripción </Title>
+          <Title level={5}> Description </Title>
           <Paragraph ellipsis={{ rows: 4 }}>{description}</Paragraph>
         </Space.Compact>
 
         <Space.Compact direction="vertical">
           <Title style={{ marginTop: "0px" }} level={5}>
-            Reparto
+            Actors
           </Title>
           {actors.map((actor) => (
             <Text key={actor}>{actor}</Text>
@@ -69,7 +71,7 @@ export const MovieSlide = ({
           <Text
             style={{ marginTop: "0px", fontWeight: "bold", fontSize: "small" }}
           >
-            Año de lanzamiento:
+            Release year:
           </Text>
           <Text style={{ fontSize: "small" }}> {year} </Text>
         </Space>

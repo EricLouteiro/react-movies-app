@@ -10,7 +10,7 @@ export const SearchResultCard = ({
 }: SearchResultCardProps) => {
   const { Text } = Typography;
   return (
-    <Row className="animate__animated animate__fadeInRight">
+    <Row className="animate__animated animate__fadeIn">
       <Space
         direction="horizontal"
         onClick={onClick}
@@ -27,8 +27,7 @@ export const SearchResultCard = ({
         <Image width={"50px"} src={poster || noImage} />
         <Space.Compact direction="vertical">
           <Space direction="horizontal">
-            <Text> Title </Text>
-            <Text> {title} </Text>
+            <Text ellipsis> {title} </Text>
           </Space>
           <Space direction="horizontal">
             <Text> Year </Text>

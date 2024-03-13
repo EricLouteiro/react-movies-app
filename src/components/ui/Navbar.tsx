@@ -19,7 +19,6 @@ export const Navbar = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(yearSelection, searchText);
     messageApi.open({
       key: "updatable",
       type: "loading",
@@ -72,6 +71,7 @@ export const Navbar = () => {
             />
             <DatePicker
               picker="year"
+              allowClear
               onChange={(_, dateString) =>
                 setYearSelection(dateString as string)
               }

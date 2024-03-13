@@ -1,4 +1,27 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite => MoviesAppProject
+
+Visit and test site:
+
+Main package used in this project:
+
+- Zustand
+- React-router
+- AntDesing StyledComponents
+- Axios
+- Animations: Animate.css
+- Yarn package manager
+
+## Run on localhost:
+
+### With Docker compose:
+
+- Copy docker-compose.yml file into a directory and run the command: `docker compose up -d`( Image will be pulled from DockerHub public repository)
+
+### With yarn
+
+- Fork repository and install node modules
+- Add an .env file with apiKey, recommended_movies and current_movies enviroment variables ( recommended and current movies have to be separated by ";" character )
+- Run the project with the command `yarn dev`
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -17,12 +40,12 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`

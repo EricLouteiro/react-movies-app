@@ -1,0 +1,10 @@
+version: "3.1"
+
+services:
+  node-react-occ:
+    image: elotueiro/react-movies:latest
+    container_name: react-movies
+    restart: always
+    ports:
+      - 8283:80
+    command: ["sh", "-c", "nginx && while true; do echo hello; sleep 10;done"]

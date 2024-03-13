@@ -35,7 +35,7 @@ export const MovieCard = ({ imgSrc, title, year, onClick }: MovieCardProps) => {
           <Text
             style={{ fontSize: "small", fontWeight: "bold", color: "gray" }}
           >
-            Año:
+            Year:
           </Text>
           <Text
             style={{ fontSize: "small", fontWeight: "bold", color: "gray" }}
