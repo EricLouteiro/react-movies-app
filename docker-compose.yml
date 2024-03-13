@@ -2,7 +2,7 @@ version: "3.1"
 
 services:
   node-react-occ:
-    image: elotueiro/react-movies:latest
+    image: ericlouteiro/react-movies:latest
     container_name: react-movies
     restart: always
     ports:
