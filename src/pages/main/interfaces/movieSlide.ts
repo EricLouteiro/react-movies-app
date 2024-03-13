@@ -3,4 +3,6 @@ export interface MovieSlideProps {
   description: string;
   actors: string[];
   year: string;
+  rate: number;
+  onClick?: () => void;
 }

@@ -2,6 +2,7 @@
 import { ConfigProvider, theme } from "antd";
 import { AppRouter } from "./routes/AppRouter";
 import { darkTheme } from "./theme";
+import "animate.css";
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
           Input: {
             colorBgContainer: "#1e1f31",
             borderRadius: 8,
+          },
+          DatePicker: {
+            // colorBgBase: "black",
+            colorBorder: "#1e1f31",
+            colorBgContainer: "#1e1f31",
+            colorBgElevated: "#1e1f31",
           },
         },
       }}

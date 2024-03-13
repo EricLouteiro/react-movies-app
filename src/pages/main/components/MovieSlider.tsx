@@ -7,11 +7,15 @@ export const MovieSlide = ({
   actors,
   description,
   year,
+  onClick,
+  rate,
 }: MovieSlideProps) => {
   const { Title, Text, Paragraph } = Typography;
   return (
     <Space.Compact
       direction="horizontal"
+      onClick={onClick}
+      className="animate__animated animate__fadeIn"
       style={{
         width: "30rem",
         height: "20rem",
@@ -20,6 +24,7 @@ export const MovieSlide = ({
         overflow: "hidden",
         boxShadow: "0 0 10px 1px #e28602",
         margin: "10px",
+        cursor: "pointer",
       }}
     >
       <Space.Compact
@@ -35,7 +40,7 @@ export const MovieSlide = ({
           style={{ borderRadius: "1rem" }}
           src={imgSrc || noImage}
         />
-        <Rate defaultValue={5} style={{ alignSelf: "end" }} />
+        <Rate disabled defaultValue={rate} style={{ alignSelf: "end" }} />
       </Space.Compact>
       <Space
         direction="vertical"
@@ -56,7 +61,7 @@ export const MovieSlide = ({
             Reparto
           </Title>
           {actors.map((actor) => (
-            <Text>{actor}</Text>
+            <Text key={actor}>{actor}</Text>
           ))}
         </Space.Compact>
 

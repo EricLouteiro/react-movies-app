@@ -16,9 +16,15 @@ export const movieAdapter = (response: MovieResponse): Movie => {
       source: data.Source,
       value: data.Value,
     })),
-    imdbRating: response.imdbRating,
+    imdbRating: ratingNormalizer(response.imdbRating),
     imdbVotes: response.imdbVotes,
     imdbID: response.imdbID,
     type: response.Type,
   };
+};
+
+const ratingNormalizer = (imdbRating: string): number => {
+  const percentage = (parseFloat(imdbRating) * 100) / 10;
+
+  return (percentage * 5) / 100;
 };
